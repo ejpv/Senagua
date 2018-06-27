@@ -12,11 +12,6 @@ create table users(
   constraint pk_user primary key(id)
 );
 
-create table recordsperson(
-  id	Serial	not null,
-  userid	integer	not null,
-  constraint pk_recordsperson primary key(id)
-);
 
 
 create table debtcollector(
@@ -25,11 +20,6 @@ create table debtcollector(
   constraint pk_debtcollector primary key(id)
 );
 
-create table administrator(
-  id	Serial	not null,
-  userid	integer	not null,
-  constraint pk_administrator primary key(id)
-);
 
 
 create table village(

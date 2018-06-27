@@ -1,12 +1,7 @@
-alter table recordsperson
-  add constraint fk_recordsperson_user foreign key(userid) references users(id);
 
 alter table debtcollector
   add constraint fk_debtcollector_user foreign key(userid) references users(id);
 
-
-alter table administrator
-  add constraint fk_administrator_user foreign key(userid) references users(id);
 
 alter table beneficiary
   add constraint fk_beneficiary_village foreign key(villageid) references village(id);
