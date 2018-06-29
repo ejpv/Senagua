@@ -12,6 +12,11 @@ create table users(
   constraint pk_user primary key(id)
 );
 
+create table recordsperson(
+  id	Serial	not null,
+  userid	integer	not null,
+  constraint pk_recordsperson primary key(id)
+);
 
 
 create table debtcollector(
@@ -20,6 +25,11 @@ create table debtcollector(
   constraint pk_debtcollector primary key(id)
 );
 
+create table administrator(
+  id	Serial	not null,
+  userid	integer	not null,
+  constraint pk_administrator primary key(id)
+);
 
 
 create table village(
@@ -43,8 +53,9 @@ create table pwstype(
   id	Serial		not null,
   isactive	boolean		not null,
   name	character varying(40)	not null,
-  baseprice	money		not null,
-  extraprice	money		not null,
+  basevolume	int		not null,
+  baseprice	double precision		not null,
+  extraprice	double precision		not null,
   constraint pk_pwstype primary key(id)
 );
 
@@ -65,7 +76,7 @@ create table uptake(
   lastvaluetaken real	not null,
   currentvaluetaken	real not null,
   totalcubicmeters	real not null,
-  price	money	not null,
+  price	double precision	not null,
   watermeterid	integer	not null,
   constraint pk_uptake primary key(id)
 );
@@ -74,7 +85,7 @@ create table uptake(
 create table service(
   id	Serial not null,
   name	character varying	(50) not null,
-  price	money	not null,
+  price	double precision	not null,
   constraint pk_service primary key(id)
 );
 
@@ -82,7 +93,7 @@ create table service(
 create table invoice(
   invoicenumber	Serial not null,
   dateofissue	character varying(10) not null,
-  totaltopay	money,
+  totaltopay	double precision,
   ispayed	boolean	default false,
   beneficiaryid	integer	not null,
   debtcollectorid	integer	not null,
@@ -94,14 +105,14 @@ create table servicedetail(
   invoiceid	integer	not null,
   serviceid	integer	not null,
   quantity integer,
-  subtotal money,
-  total	money
+  subtotal double precision,
+  total	double precision
 );
 
 
 create table pwsdetail(
   invoiceid	integer	not null,
   uptakeid	integer	not null,
-  subtotal money	,
-  total	money
+  subtotal double precision	,
+  total	double precision
 );
