@@ -9,7 +9,7 @@ package ec.gob.senagua.model.entity;
  *
  * @author alexander
  */
-public abstract class VillageEntity {
+public class VillageEntity {
     
     private int id;
     private String name;
@@ -42,13 +42,5 @@ public abstract class VillageEntity {
     public String toString() {
         return name;
     }
-    
-    public abstract boolean save() throws Exception;
-
-    public abstract void findById(int id) throws Exception;
-
-    public abstract boolean update() throws Exception;
-
-    public abstract boolean delete() throws Exception;
     
 }

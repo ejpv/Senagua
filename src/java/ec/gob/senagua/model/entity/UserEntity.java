@@ -9,7 +9,7 @@ package ec.gob.senagua.model.entity;
  *
  * @author alexander
  */
-public abstract class UserEntity {
+public class UserEntity {
 
     private int id;
     private String userName;
@@ -122,13 +122,5 @@ public abstract class UserEntity {
     public String toString() {
         return lastName + " " + firstName;
     }
-
-    public abstract boolean save() throws Exception;
-
-    public abstract void findById(int id) throws Exception;
-
-    public abstract boolean update() throws Exception;
-
-    public abstract boolean delete() throws Exception;
 
 }

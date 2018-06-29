@@ -11,7 +11,7 @@ import ec.gob.senagua.model.method.UserMethod;
  *
  * @author alexander
  */
-public abstract class RecordsPersonEntity {
+public class RecordsPersonEntity {
 
     private int id;
     private UserMethod user;
@@ -45,11 +45,4 @@ public abstract class RecordsPersonEntity {
         return user.toString();
     }
 
-    public abstract boolean save() throws Exception;
-
-    public abstract void findById(int id) throws Exception;
-
-    public abstract boolean update() throws Exception;
-
-    public abstract boolean delete() throws Exception;
 }
