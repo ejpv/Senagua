@@ -8,7 +8,9 @@ package ec.gob.senagua.model.method;
 import ec.gob.senagua.dbconnection.DBConnection;
 import ec.gob.senagua.dbconnection.DBObject;
 import ec.gob.senagua.model.entity.UserEntity;
+import ec.gob.senagua.model.entity.interfaces.UserInterface;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,7 @@ import java.util.List;
  *
  * @author alexander
  */
-public class UserMethod extends UserEntity {
+public class UserMethod extends UserEntity implements UserInterface {
 
     private final DBConnection DBC = new DBConnection();
 
@@ -128,4 +130,15 @@ public class UserMethod extends UserEntity {
         return affected;
     }
 
+    @Override     
+    public ResultSet find() throws Exception {
+        String sql = "SELECT * FROM public.pwstype;";
+        ResultSet rs = null;
+        try {
+            rs = DBC.queryGet(sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw e;
+        }
+        return rs;
+    }
 }

@@ -7,8 +7,10 @@ package ec.gob.senagua.model.method;
 
 import ec.gob.senagua.dbconnection.DBConnection;
 import ec.gob.senagua.dbconnection.DBObject;
+import ec.gob.senagua.model.entity.interfaces.VillageInterface;
 import ec.gob.senagua.model.entity.VillageEntity;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,7 @@ import java.util.List;
  *
  * @author alexander
  */
-public class VillageMethod extends VillageEntity {
+public class VillageMethod extends VillageEntity implements VillageInterface{
 
     private final DBConnection DBC = new DBConnection();
 
@@ -97,6 +99,18 @@ public class VillageMethod extends VillageEntity {
             throw e;
         }
         return affected;
+    }
+
+    @Override
+    public ResultSet find() throws Exception {
+        String sql = "SELECT * FROM public.pwstype;";
+        ResultSet rs = null;
+        try {
+            rs = DBC.queryGet(sql);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw e;
+        }
+        return rs;
     }
 
 }

@@ -6,12 +6,14 @@
 package ec.gob.senagua.model.method;
 
 import ec.gob.senagua.model.entity.RecordsPersonEntity;
+import ec.gob.senagua.model.entity.interfaces.RecordsPersonInterface;
+import java.sql.ResultSet;
 
 /**
  *
  * @author alexander
  */
-public class RecordsPersonMethod extends RecordsPersonEntity {
+public class RecordsPersonMethod extends RecordsPersonEntity implements RecordsPersonInterface{
 
     public RecordsPersonMethod() {
     }
@@ -37,6 +39,11 @@ public class RecordsPersonMethod extends RecordsPersonEntity {
 
     @Override
     public boolean delete() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ResultSet find() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
